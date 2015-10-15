@@ -4,13 +4,13 @@ var extend = require('node.extend');
 var Client = require('../models/client');
 
 router.get('/', function (req, res) {
-  Client.find(function (err, cients) {
+  Client.find(function (err, clients) {
     if (err) {
       console.error(err);
       res.status(400).send(err);
     }
 
-    res.json(cients);
+    res.json(clients);
   });
 });
 
