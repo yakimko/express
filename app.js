@@ -11,7 +11,7 @@ var clients = require('./routes/clients');
 var app = express();
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/myexpressapp');
+mongoose.connect('mongodb://localhost:27017/clientsapp');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
