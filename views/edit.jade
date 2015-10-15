@@ -1,0 +1,58 @@
+form(name='form', style='width: 600px;' novalidate).form-horizontal
+   div.form-group
+      label.col-sm-4.control-label First name
+      div.col-sm-8
+         input(type='text', ng-model='client.firstName', required).form-control
+   div.form-group
+      label.col-sm-4.control-label Last name
+      div.col-sm-8
+         input(type='text', ng-model='client.lastName', required).form-control
+   div.form-group
+      label.col-sm-4.control-label Personal number
+      div.col-sm-8
+         input(type='text', ng-model='client.pnumber').form-control
+   div.form-group
+      label.col-sm-4.control-label Email
+      div.col-sm-8
+         input(type='email', ng-model='client.email').form-control
+   div.form-group
+      label.col-sm-4.control-label Home phone number
+      div.col-sm-8
+         input(type='text', ng-model='client.homePhone', ng-minlength='10', ng-maxlength='10').form-control
+   div.form-group
+      label.col-sm-4.control-label Business phone number
+      div.col-sm-8
+         input(type='text', ng-model='client.businessPhone', ng-minlength='10', ng-maxlength='10').form-control
+   div.form-group
+      label.col-sm-4.control-label
+         | Accounts&nbsp;
+         span(ng-click='addAccount()', ng-hide='client.accounts.length').action +
+   div(ng-repeat='account in client.accounts')
+      div.form-group
+         label.col-sm-2.control-label Number
+         div.col-sm-3
+            input(type='text', ng-model='account.number').form-control
+         label.col-sm-2.control-label Description
+         div.col-sm-3
+            input(type='text', ng-model='account.description').form-control
+         div.col-sm-2
+            span(ng-click='$parent.addAccount()').action +
+            span(ng-click='$parent.remove(client.accounts, account)').action -
+   div.form-group
+      label.col-sm-4.control-label
+         | Notes&nbsp;
+         span(ng-click='addNote()', ng-hide='client.notes.length').action +
+   div(ng-repeat='note in client.notes')
+      div.form-group
+         div.col-sm-10
+            input(type='text', ng-model='note.text').form-control
+         div.col-sm-2
+            span(ng-click='$parent.addNote()').action +
+            span(ng-click='$parent.remove(client.notes, note)').action -
+   div.form-group
+      div.col-sm-offset-4.col-sm-8
+         button(type='button', ng-click='save()', ng-disabled='form.$invalid').btn.btn-primary Save
+         | &nbsp;
+         button(type='button', ng-click='reset()').btn.btn-default Reset
+         | &nbsp;
+         button(type='button', ng-click='cancel()').btn.btn-default Cancel

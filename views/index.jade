@@ -1,0 +1,17 @@
+doctype html
+
+html
+  head
+    title=title
+    link(rel='stylesheet', href='/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='/angular/angular.min.js')
+    script(src='/angular-resource/angular-resource.min.js')
+    script(src='/angular-route/angular-route.min.js')
+    script(src='/javascripts/services.js')
+    script(src='/javascripts/controllers.js')
+    script(src='/javascripts/filters.js')
+    script(src='/javascripts/app.js')
+  body(ng-app='clientApp')
+    div(ng-view)
+
